@@ -4,6 +4,7 @@ import ImageFont, ImageDraw
 import collections
 from collections import Counter
 import math
+import random
 
 def makeAChart(data):
 	CommandPrompt12x16 = ImageFont.truetype('Command-Prompt-12x16.ttf',32)
@@ -20,10 +21,11 @@ def makeAChart(data):
 	overlaps=0
 	previous=0
 	for point in bands:
-		if math.fabs(point-previous)<22:
+		if (point-previous)<6:
 			overlaps+=1
 			previous=0
 			previous+=point
+	print 'OVERLAPS', overlaps
 	singleGradient = int(192. / overlaps)
 	chart=Image.new('RGB',(1200,800),(0,0,0))
 	for point in bands:
