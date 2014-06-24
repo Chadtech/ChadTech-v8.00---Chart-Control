@@ -4,7 +4,6 @@ import ImageFont, ImageDraw
 import collections
 from collections import Counter
 import math
-import random
 
 def makeAChart(data):
 	CommandPrompt12x16 = ImageFont.truetype('Command-Prompt-12x16.ttf',32)
@@ -28,7 +27,7 @@ def makeAChart(data):
 	singleGradient = int(192. / overlaps)
 	chart=Image.new('RGB',(1200,800),(0,0,0))
 	for point in bands:
-		for sides in range(5):
+		for sides in range(3):
 			curR,curG,curB = chart.getpixel((point+sides+150,topOfDomain))
 			if curR==0:
 				newCol = minimumColorValue	
